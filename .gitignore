@@ -213,3 +213,5 @@ data/interim
 data/processed
 data/external
 models/
+reports/experiment_info.json
+reports/metrics.json
