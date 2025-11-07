@@ -29,6 +29,6 @@ jobs:
 
       - name: run pipeline
         env:
-          CAPSTONE_TEST: ${{ secrets.CAPSTONE_TEST }}
+          MLOPS_Capstone_Proj: ${{ secrets.MLOPS_Capstone_Proj }}
         run: |
           dvc repro
