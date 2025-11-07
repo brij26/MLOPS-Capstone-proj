@@ -14,26 +14,26 @@ from src.logger import logging
 # Below code is for production use
 # ------------------------------------------------------------------------------
 # Set up Dagshub credentials for mlflow tracking
-# dagshub_token = os.getenv("CAPATONE_PROJ")
-# if not dagshub_token:
-#     raise EnvironmentError("CAPTSTONE_PROJ evironment variable is not set")
+dagshub_token = os.getenv("CAPATONE_PROJ")
+if not dagshub_token:
+    raise EnvironmentError("CAPTSTONE_PROJ evironment variable is not set")
 
-# os.environ("MLFLOW_TRACKING_USERNAME") = dagshub_token
-# os.environ("MLFLOW_TRACKING_PASSWORD") = dagshub_token
+os.environ("MLFLOW_TRACKING_USERNAME") = dagshub_token
+os.environ("MLFLOW_TRACKING_PASSWORD") = dagshub_token
 
-# dagshub_url = "https://dagshub.com"
-# repo_owner = "brij26"
-# repo_name = "MLOPS-Capstone-Proj"
+dagshub_url = "https://dagshub.com"
+repo_owner = "brij26"
+repo_name = "MLOPS-Capstone-Proj"
 
 # Setup Mlflow tracking URI
-# mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 # ------------------------------------------------------------------------------
 
 # Below code block is for local use
 # -----------------------------------------------------------------------------
-mlflow.set_tracking_uri(
-    "https://dagshub.com/brij26/MLOPS-Capstone-proj.mlflow")
-dagshub.init(repo_name="MLOPS-Capstone-proj", repo_owner="brij26", mlflow=True)
+# mlflow.set_tracking_uri(
+#     "https://dagshub.com/brij26/MLOPS-Capstone-proj.mlflow")
+# dagshub.init(repo_name="MLOPS-Capstone-proj", repo_owner="brij26", mlflow=True)
 # -----------------------------------------------------------------------------
 
 
