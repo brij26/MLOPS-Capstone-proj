@@ -70,8 +70,8 @@ class TestModelLoading(unittest.TestCase):
 
     def test_model_preformance(self):
         # Extract features and labels from holdout test data
-        X_holdout = self.holdout_data[:, :-1]
-        y_holdout = self.holdout_data[:, -1]
+        X_holdout = self.holdout_data.iloc[:, :-1]
+        y_holdout = self.holdout_data.iloc[:, -1]
 
         # Predict using the new model
         y_pred_new = self.new_model.predict(X_holdout)
