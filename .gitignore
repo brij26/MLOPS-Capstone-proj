@@ -209,5 +209,8 @@ __marimo__/
 cred.txt
 local_s3/
 cred.txt
-data/
+data/raw
+data/interim
+data/processed
+data/external
 models/
