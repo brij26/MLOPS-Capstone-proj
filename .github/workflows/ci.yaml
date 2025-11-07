@@ -29,6 +29,6 @@ jobs:
 
       - name: run pipeline
         env:
-          CAPATONE_PROJ: ${{ secrets.CAPATONE_PROJ }}
+          CAPSTONE_PROJ: ${{ secrets.CAPSTONE_PROJ }}
         run: |
           dvc repro
