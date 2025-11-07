@@ -21,7 +21,7 @@ class TestModelLoading(unittest.TestCase):
 
         dagshub_url = "https://dagshub.com"
         repo_owner = "brij26"
-        repo_name = "MLOPS-Capstone_Proj"
+        repo_name = "MLOPS-Capstone-Proj"
 
         # Setup mlflow tracking uri
         mlflow.set_tracking_uri(
