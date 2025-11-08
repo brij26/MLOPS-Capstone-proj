@@ -1,4 +1,4 @@
-```markdown
+````markdown
 # 🚀 End-to-End MLOps Capstone Project
 
 ### 🧠 Machine Learning | 🧩 DVC | ☁️ AWS (ECR + EKS) | 🧰 CI/CD (GitHub Actions) | 📊 Monitoring with Prometheus & Grafana
@@ -13,35 +13,40 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 
 ---
 
-## 🧱 Project Architecture
+```markdown
+## 🗂️ Project Structure
+
+A quick overview of the repository organization:
 ```
+````
 
 .
-├── src/
-│ ├── logger/
-│ ├── data_ingestion.py
-│ ├── data_preprocessing.py
-│ ├── feature_engineering.py
-│ ├── model_building.py
-│ ├── model_evaluation.py
-│ ├── register_model.py
+├── **src/** # Source code for ML pipeline
+│ ├── logger/ # Logging utilities
+│ ├── data_ingestion.py # Data collection and ingestion scripts
+│ ├── data_preprocessing.py # Data cleaning and preprocessing
+│ ├── feature_engineering.py # Feature extraction and transformation
+│ ├── model_building.py # Model training scripts
+│ ├── model_evaluation.py # Model evaluation and metrics
+│ └── register_model.py # Model registration with MLFlow/DVC
 │
-├── flask_app/
-│ ├── app.py
-│ ├── templates/
-│ ├── static/
+├── **flask_app/** # Flask application for ML inference
+│ ├── app.py # Main Flask app
+│ ├── templates/ # HTML templates for the app
+│ └── static/ # Static files (CSS, JS, images)
 │
-├── tests/
-├── scripts/
-├── dvc.yaml
-├── params.yaml
-├── requirements.txt
-├── Dockerfile
-└── .github/
+├── **tests/** # Unit and integration tests
+├── **scripts/** # Utility scripts for automation
+├── **dvc.yaml** # DVC pipeline configuration
+├── **params.yaml** # Hyperparameters and configs
+├── **requirements.txt** # Python dependencies
+├── **Dockerfile** # Docker image configuration
+└── **.github/** # GitHub Actions CI/CD workflows
 └── workflows/
-└── ci.yaml
+└── ci.yaml # CI/CD pipeline
 
 ````
+
 
 ---
 
