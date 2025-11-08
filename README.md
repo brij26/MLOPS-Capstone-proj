@@ -245,9 +245,9 @@ and
 
 ## 🤝 Connect with Me
 
-📧 **Email:** [brijrpatel076@gmail.com]
-💼 **LinkedIn:** [https://www.linkedin.com/in/brij-r-patel-800a41256/]
-💻 **GitHub:** [https://github.com/brij26]
+📧 **Email:** [brijrpatel076@gmail.com](mailto:brijrpatel076@gmail.com)
+💼 **LinkedIn:** [Brij R Patel](https://www.linkedin.com/in/brij-r-patel-800a41256/)
+💻 **GitHub:** [brij26](https://github.com/brij26)
 
 ---
 
