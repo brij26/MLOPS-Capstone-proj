@@ -215,3 +215,5 @@ data/external
 models/
 reports/experiment_info.json
 reports/metrics.json
+eksctl.zip
+kubectl.exe
