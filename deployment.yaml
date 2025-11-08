@@ -31,7 +31,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: capstone-secret
-              key: CAPSTONE_TEST
+              key: CAPSTONE_PROJ
 
 ---
 apiVersion: v1
