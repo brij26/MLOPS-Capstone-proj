@@ -1,262 +1,455 @@
-````markdown
 # 🚀 End-to-End MLOps Capstone Project
 
-### 🧠 Machine Learning | 🧩 DVC | ☁️ AWS (ECR + EKS) | 🧰 CI/CD (GitHub Actions) | 📊 Monitoring with Prometheus & Grafana
+<div align="center">
+
+![MLOps](https://img.shields.io/badge/MLOps-Production%20Ready-brightgreen?style=for-the-badge)
+![AWS](https://img.shields.io/badge/AWS-EKS%20%7C%20ECR-orange?style=for-the-badge&logo=amazon-aws)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-black?style=for-the-badge&logo=github)
+
+**A production-grade Machine Learning Operations pipeline showcasing industry best practices**
+
+[Features](#-key-features) • [Architecture](#-architecture) • [Setup](#-quick-start) • [Deployment](#-deployment) • [Monitoring](#-monitoring)
+
+</div>
 
 ---
 
-## 📖 Overview
+## 📋 Table of Contents
 
-This project represents a **complete MLOps pipeline** — from experiment tracking and version control to containerization, CI/CD automation, cloud deployment, and monitoring.
-
-It demonstrates **industry-standard practices** for managing the ML lifecycle using **MLFlow, DVC, Docker, AWS ECR/EKS, Prometheus, and Grafana**.
-
----
-
----
-
-## ⚙️ Major Features
-
-✅ **Cookiecutter Data Science Template** — for clean, modular project organization
-✅ **MLFlow + Dagshub** — experiment tracking and model registry and model serving
-✅ **DVC (Data Version Control)** — tracks dataset and model versioning
-✅ **AWS S3 Remote Storage** — stores data and model artifacts securely
-✅ **Flask App** — deployable ML inference API
-✅ **Dockerized Application** — consistent and portable environment
-✅ **CI/CD with GitHub Actions** — automated build, test, and deployment pipeline
-✅ **AWS ECR + EKS** — production-grade container orchestration
-✅ **Prometheus & Grafana** — real-time monitoring and visualization
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Quick Start](#-quick-start)
+- [Workflow](#-detailed-workflow)
+- [Deployment](#-deployment)
+- [Monitoring](#-monitoring)
+- [API Endpoints](#-api-endpoints)
+- [Learnings](#-key-learnings)
+- [Connect](#-connect-with-me)
 
 ---
 
-## 🧩 Step-by-Step Workflow
+## 🌟 Overview
 
-### 🏗️ 1. Project Setup
+This project demonstrates a **complete MLOps pipeline** — from experiment tracking and version control to containerization, CI/CD automation, cloud deployment, and real-time monitoring. Built with industry-standard tools and practices, it showcases how to take ML models from development to production seamlessly.
 
-1. Initialize repo locally using Cookiecutter Data Science:
-   ```bash
-   conda create -n atlas python=3.10
-   conda activate atlas
-   pip install cookiecutter
-   cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
-   ```
-````
+### What Makes This Special?
 
-````
-
-2. Setup source folders (`src/`), rename `models` → `model`.
-3. Initialize git and push to GitHub.
+- 🎯 **Production-Ready**: Fully automated CI/CD pipeline with zero-downtime deployments
+- 📊 **Experiment Tracking**: Complete model lineage and versioning with MLflow
+- 🔄 **Reproducibility**: DVC ensures consistent data and model versions across environments
+- ☁️ **Cloud-Native**: Deployed on AWS EKS with auto-scaling capabilities
+- 📈 **Observable**: Real-time monitoring with Prometheus and Grafana dashboards
 
 ---
 
-### 🧪 2. MLFlow Tracking with DagsHub
+## ✨ Key Features
 
-- Created DagsHub repository and connected it with GitHub.
-- Installed `dagshub` and `mlflow` for experiment tracking.
-- Logged metrics, parameters, and artifacts using MLFlow UI.
+<table>
+<tr>
+<td width="50%">
+
+### Development & Tracking
+
+- ✅ Cookiecutter Data Science structure
+- ✅ MLFlow + DagsHub integration
+- ✅ DVC for data/model versioning
+- ✅ AWS S3 remote storage
+- ✅ Parameterized pipelines
+
+</td>
+<td width="50%">
+
+### Deployment & Operations
+
+- ✅ Flask REST API
+- ✅ Docker containerization
+- ✅ GitHub Actions CI/CD
+- ✅ AWS ECR + EKS deployment
+- ✅ Prometheus & Grafana monitoring
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐      ┌──────────────┐      ┌─────────────────┐
+│   Development   │──────▶│   GitHub     │──────▶│   CI/CD        │
+│   (Local)       │      │   Repository │      │   (Actions)     │
+└─────────────────┘      └──────────────┘      └─────────────────┘
+        │                                               │
+        │                                               ▼
+        ▼                                      ┌─────────────────┐
+┌─────────────────┐                           │   AWS ECR       │
+│   MLflow        │                           │   (Container    │
+│   + DagsHub     │                           │    Registry)    │
+└─────────────────┘                           └─────────────────┘
+        │                                               │
+        │                                               ▼
+        ▼                                      ┌─────────────────┐
+┌─────────────────┐                           │   AWS EKS       │
+│   DVC + S3      │                           │   (Kubernetes)  │
+│   (Versioning)  │                           └─────────────────┘
+└─────────────────┘                                    │
+                                                       ▼
+                                              ┌─────────────────┐
+                                              │  Monitoring     │
+                                              │  Prometheus +   │
+                                              │  Grafana        │
+                                              └─────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="48" height="48" alt="Python"/>
+<br><strong>Python</strong>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="48" height="48" alt="Docker"/>
+<br><strong>Docker</strong>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" width="48" height="48" alt="AWS"/>
+<br><strong>AWS</strong>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" width="48" height="48" alt="Kubernetes"/>
+<br><strong>Kubernetes</strong>
+</td>
+<td align="center" width="20%">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="48" height="48" alt="GitHub Actions"/>
+<br><strong>CI/CD</strong>
+</td>
+</tr>
+</table>
+
+| **Category**         | **Technologies**              |
+| -------------------- | ----------------------------- |
+| **ML & Tracking**    | MLflow, DagsHub, Scikit-learn |
+| **Version Control**  | Git, GitHub, DVC              |
+| **Storage**          | AWS S3                        |
+| **API**              | Flask, REST                   |
+| **Containerization** | Docker                        |
+| **Orchestration**    | AWS EKS, kubectl, eksctl      |
+| **CI/CD**            | GitHub Actions                |
+| **Monitoring**       | Prometheus, Grafana           |
+| **Infrastructure**   | AWS CLI, IAM                  |
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+```bash
+# Required installations
+- Python 3.10+
+- Docker
+- AWS CLI
+- kubectl
+- eksctl
+- Git
+```
+
+### Installation
+
+1️⃣ **Clone the repository**
+
+```bash
+git clone https://github.com/brij26/MLOPS-Capstone-proj.git
+cd MLOPS-Capstone-proj
+```
+
+2️⃣ **Create virtual environment**
+
+```bash
+conda create -n atlas python=3.10
+conda activate atlas
+pip install -r requirements.txt
+```
+
+3️⃣ **Configure DVC and AWS**
+
+```bash
+# Initialize DVC
+dvc init
+
+# Configure AWS credentials
+aws configure
+
+# Add S3 remote
+dvc remote add -d myremote s3://<your-bucket-name>
+```
+
+4️⃣ **Run the pipeline**
+
+```bash
+dvc repro
+```
+
+5️⃣ **Start Flask app locally**
+
+```bash
+python flask_app/app.py
+```
+
+---
+
+## 📖 Detailed Workflow
+
+### 1. Project Initialization
+
+Set up a clean, modular project structure using Cookiecutter Data Science template.
+
+```bash
+cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
+```
+
+### 2. Experiment Tracking with MLflow & DagsHub
+
+Track experiments, log metrics, parameters, and artifacts:
 
 ```python
 import dagshub
+import mlflow
+
 dagshub.init(repo_name="MLOPS-Capstone-proj", mlflow=True)
+
+with mlflow.start_run():
+    mlflow.log_param("learning_rate", 0.01)
+    mlflow.log_metric("accuracy", 0.95)
+    mlflow.log_artifact("model.pkl")
+```
+
+### 3. Data Version Control with DVC
+
+Create reproducible ML pipelines:
+
+```yaml
+# dvc.yaml
+stages:
+  data_ingestion:
+    cmd: python src/data/load_data.py
+    deps:
+      - src/data/load_data.py
+    outs:
+      - data/raw
+
+  preprocessing:
+    cmd: python src/features/preprocess.py
+    deps:
+      - data/raw
+    outs:
+      - data/processed
+```
+
+### 4. Dockerization
+
+Build consistent, portable containers:
+
+```dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "flask_app/app.py"]
+```
+
+Build and run:
+
+```bash
+docker build -t capstone-app:latest .
+docker run -p 8888:5000 -e CAPSTONE_PROJ=<token> capstone-app:latest
+```
+
+### 5. CI/CD Pipeline
+
+GitHub Actions automate the entire deployment:
+
+- ✅ Code checkout
+- ✅ Dependency installation
+- ✅ Testing with pytest
+- ✅ Docker image build
+- ✅ Push to AWS ECR
+- ✅ Deploy to EKS
+
+---
+
+## ☁️ Deployment
+
+### AWS EKS Setup
+
+1️⃣ **Create EKS Cluster**
+
+```bash
+eksctl create cluster \
+  --name flask-app-cluster \
+  --region us-east-1 \
+  --node-type t3.small \
+  --nodes 1 \
+  --managed
+```
+
+2️⃣ **Verify Cluster**
+
+```bash
+kubectl get nodes
+kubectl get svc
+```
+
+3️⃣ **Deploy Application**
+
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+4️⃣ **Access Application**
+
+```bash
+kubectl get svc flask-app-service
+# Access via LoadBalancer URL
+```
+
+### GitHub Secrets Required
+
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_REGION
+ECR_REPOSITORY
+AWS_ACCOUNT_ID
+CAPSTONE_PROJ
 ```
 
 ---
 
-### 📦 3. Data Versioning with DVC
+## 📊 Monitoring
 
-- Initialized DVC:
+### Prometheus Setup
 
-  ```bash
-  dvc init
-  dvc remote add -d mylocal local_s3
-  ```
+Monitor application metrics in real-time:
 
-- Added pipeline stages in `dvc.yaml`:
+```yaml
+# prometheus.yml
+scrape_configs:
+  - job_name: "flask-app"
+    static_configs:
+      - targets: ["<load-balancer-url>:5000"]
+```
 
-  - Data ingestion → preprocessing → feature engineering → model training → evaluation
+**Access**: `http://<prometheus-ec2-ip>:9090`
 
-- Configured `params.yaml` for tunable parameters.
+### Grafana Dashboards
 
-- Linked AWS S3 as remote:
+Visualize metrics with custom dashboards:
 
-  ```bash
-  aws configure
-  dvc remote add -d myremote s3://<bucket-name>
-  ```
+1. Add Prometheus as data source
+2. Create dashboards for:
+   - Request rate
+   - Response time
+   - Error rate
+   - Resource utilization
 
----
-
-### 🔥 4. Flask Application
-
-- Developed a lightweight Flask app (`flask_app/app.py`) for model inference.
-- Integrated ML model artifact loading and endpoint testing.
-- Ran locally:
-
-  ```bash
-  python app.py
-  ```
+**Access**: `http://<grafana-ec2-ip>:3000`
 
 ---
 
-### 🐳 5. Dockerization
+## 🔌 API Endpoints
 
-- Installed `pipreqs` to auto-generate dependencies:
+### Health Check
 
-  ```bash
-  pipreqs . --force
-  ```
+```bash
+GET /health
+```
 
-- Built and ran Docker image:
+### Prediction
 
-  ```bash
-  docker build -t capstone-app:latest .
-  docker run -p 8888:5000 -e CAPSTONE_PROJ=<token> capstone-app:latest
-  ```
+```bash
+POST /predict
+Content-Type: application/json
 
-- (Optional) Pushed image to DockerHub.
+{
+  "features": [...]
+}
+```
 
----
+### Metrics
 
-### ⚡ 6. CI/CD with GitHub Actions
-
-- Configured `.github/workflows/ci.yaml` to automate:
-
-  - Dependency installation
-  - Code testing (`pytest`)
-  - Docker image build
-  - Push image to AWS ECR
-  - Deploy to EKS
-
-- Added GitHub secrets for:
-
-  ```
-  AWS_ACCESS_KEY_ID
-  AWS_SECRET_ACCESS_KEY
-  AWS_REGION
-  ECR_REPOSITORY
-  AWS_ACCOUNT_ID
-  CAPSTONE_PROJ
-  ```
-
----
-
-### ☁️ 7. AWS EKS Deployment
-
-- Installed & configured:
-
-  - **AWS CLI**, **kubectl**, **eksctl**
-
-- Created EKS Cluster:
-
-  ```bash
-  eksctl create cluster \
-    --name flask-app-cluster \
-    --region us-east-1 \
-    --node-type t3.small \
-    --nodes 1 --managed
-  ```
-
-- Verified:
-
-  ```bash
-  kubectl get nodes
-  kubectl get svc
-  ```
-
-- Exposed LoadBalancer service:
-
-  ```bash
-  kubectl get svc flask-app-service
-  ```
-
-- Accessed app via:
-
-  ```
-  http://a123b8a3751df4bd8ae72212bbfd34b6-1071991751.us-east-1.elb.amazonaws.com:5000
-  ```
-
----
-
-### 📈 8. Monitoring with Prometheus & Grafana
-
-#### 🧭 Prometheus
-
-- Installed on Ubuntu EC2 (port `9090`)
-- Configured targets to scrape metrics from Flask app:
-
-  ```yaml
-  scrape_configs:
-    - job_name: "flask-app"
-      static_configs:
-        - targets:
-            [
-              "a123b8a3751df4bd8ae72212bbfd34b6-1071991751.us-east-1.elb.amazonaws.com:5000",
-            ]
-  ```
-
-#### 📊 Grafana
-
-- Installed on another EC2 (port `3000`)
-- Connected Prometheus as a data source.
-- Built real-time dashboards for app health and performance.
-
----
-
-## 🧰 Tech Stack
-
-| Layer                      | Tools                    |
-| -------------------------- | ------------------------ |
-| **Version Control**        | Git, GitHub              |
-| **Experiment Tracking**    | MLflow, Dagshub          |
-| **Data Versioning**        | DVC                      |
-| **Storage**                | AWS S3                   |
-| **Containerization**       | Docker                   |
-| **CI/CD**                  | GitHub Actions           |
-| **Orchestration**          | AWS EKS                  |
-| **Monitoring**             | Prometheus, Grafana      |
-| **Backend API**            | Flask                    |
-| **Infrastructure as Code** | eksctl, kubectl, AWS CLI |
-
----
-
-## 🧠 Learnings & Highlights
-
-- Implemented **end-to-end automation** for ML workflows.
-- Hands-on experience with **AWS Cloud deployment** using ECR & EKS.
-- Learned **model versioning, experiment tracking**, and **pipeline orchestration** using DVC.
-- Built **observability dashboards** with Prometheus & Grafana.
-- Designed a **production-ready CI/CD pipeline** integrated with GitHub Actions.
-
----
-
-## 🪄 Final Output
-
-Once deployed successfully, your app will be available at:
-
-> 🌐 `http://a123b8a3751df4bd8ae72212bbfd34b6-1071991751.us-east-1.elb.amazonaws.com::5000`
-
-You can view real-time metrics in:
-
-> 📊 Grafana Dashboard → `http://<Grafana-EC2-IP>:3000`
-
-and
-
-> 🧭 Prometheus UI → `http://<Prometheus-EC2-IP>:9090`
-
-## 🤝 Connect with Me
-
-📧 **Email:** [brijrpatel076@gmail.com](mailto:brijrpatel076@gmail.com)
-💼 **LinkedIn:** [Brij R Patel](https://www.linkedin.com/in/brij-r-patel-800a41256/)
-💻 **GitHub:** [brij26](https://github.com/brij26)
-
----
-
-⭐ _If you like this project, don’t forget to give it a star!_ ⭐
-
+```bash
+GET /metrics
 ```
 
 ---
 
+## 🎓 Key Learnings
 
-```
-````
+This project provided hands-on experience with:
+
+- 🔄 **End-to-end ML automation** from training to deployment
+- ☁️ **Cloud-native deployment** on AWS with EKS
+- 📦 **Container orchestration** using Kubernetes
+- 🔍 **Model versioning** and experiment tracking
+- 📈 **Production monitoring** and observability
+- 🚀 **CI/CD best practices** with GitHub Actions
+- 🎯 **Reproducible ML pipelines** with DVC
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Application**: `http://a123b8a3751df4bd8ae72212bbfd34b6-1071991751.us-east-1.elb.amazonaws.com:5000`
+
+📊 **Grafana Dashboard**: `http://<grafana-ip>:3000`
+
+🎯 **Prometheus Metrics**: `http://<prometheus-ip>:9090`
+
+---
+
+## 📚 Documentation
+
+- [MLflow Documentation](https://mlflow.org/docs/latest/index.html)
+- [DVC Documentation](https://dvc.org/doc)
+- [AWS EKS Guide](https://docs.aws.amazon.com/eks/)
+- [Prometheus Guide](https://prometheus.io/docs/)
+
+---
+
+## 🤝 Connect With Me
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-brijrpatel076%40gmail.com-red?style=for-the-badge&logo=gmail)](mailto:brijrpatel076@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Brij%20R%20Patel-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/brij-r-patel-800a41256/)
+[![GitHub](https://img.shields.io/badge/GitHub-brij26-black?style=for-the-badge&logo=github)](https://github.com/brij26)
+
+</div>
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+### ⭐ If you found this project helpful, please give it a star!
+
+**Made with ❤️ and ☕ by [Brij R Patel](https://github.com/brij26)**
+
+</div>
