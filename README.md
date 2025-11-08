@@ -1,7 +1,3 @@
-Absolutely ✅ — below is a **professional, visually engaging, recruiter-friendly `README.md`** written to showcase your full **MLOps + Deployment on AWS (EKS, Prometheus, Grafana)** project.
-
-It’s designed to highlight your skills, structure, and automation mastery — formatted cleanly for **GitHub’s markdown rendering** (with emojis, sections, and clickable flow).
-
 ---
 
 ```markdown
@@ -20,6 +16,7 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 ---
 
 ## 🧱 Project Architecture
+
 ```
 
 .
@@ -47,7 +44,7 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 └── workflows/
 └── ci.yaml
 
-````
+```
 
 ---
 
@@ -75,6 +72,8 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
    conda activate atlas
    pip install cookiecutter
    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
+   ```
+
 ````
 
 2. Setup source folders (`src/`), rename `models` → `model`.
@@ -292,3 +291,4 @@ and
 
 
 ```
+````
