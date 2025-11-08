@@ -355,16 +355,29 @@ scrape_configs:
 
 ### Grafana Dashboards
 
-Visualize metrics with custom dashboards:
+Visualize metrics with custom dashboards tracking:
 
-1. Add Prometheus as data source
-2. Create dashboards for:
-   - Request rate
-   - Response time
-   - Error rate
-   - Resource utilization
+- 📈 **Request rate** - Monitor incoming traffic to home routes
+- ⚡ **Response time** - Track API performance
+- 🎯 **Model predictions** - Count total predictions made
+- 🔄 **Error rate** - Monitor system health
+- 💻 **Resource utilization** - CPU, memory, and network metrics
+
+<div align="center">
+
+![Grafana Dashboard](https://github.com/brij26/MLOPS-Capstone-proj/blob/main/docs/images/grafana-dashboard.png)
+
+_Real-time monitoring dashboard showing request patterns and model prediction metrics_
+
+</div>
 
 **Access**: `http://<grafana-ec2-ip>:3000`
+
+#### Dashboard Highlights
+
+- **Top Panel**: Requests to home route with dual instance monitoring
+- **Bottom Panel**: Model prediction counts with prediction status (0 and 1)
+- **Time Range**: Last 5 minutes with auto-refresh enabled
 
 ---
 
