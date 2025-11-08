@@ -1,5 +1,3 @@
----
-
 ```markdown
 # 🚀 End-to-End MLOps Capstone Project
 
@@ -16,7 +14,6 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 ---
 
 ## 🧱 Project Architecture
-
 ```
 
 .
@@ -44,7 +41,7 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 └── workflows/
 └── ci.yaml
 
-```
+````
 
 ---
 
@@ -72,7 +69,7 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
    conda activate atlas
    pip install cookiecutter
    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
-   ```
+````
 
 ````
 
