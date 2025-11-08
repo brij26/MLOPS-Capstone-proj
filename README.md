@@ -13,41 +13,6 @@ It demonstrates **industry-standard practices** for managing the ML lifecycle us
 
 ---
 
-```markdown
-## 🗂️ Project Structure
-
-A quick overview of the repository organization:
-```
-````
-
-.
-├── **src/** # Source code for ML pipeline
-│ ├── logger/ # Logging utilities
-│ ├── data_ingestion.py # Data collection and ingestion scripts
-│ ├── data_preprocessing.py # Data cleaning and preprocessing
-│ ├── feature_engineering.py # Feature extraction and transformation
-│ ├── model_building.py # Model training scripts
-│ ├── model_evaluation.py # Model evaluation and metrics
-│ └── register_model.py # Model registration with MLFlow/DVC
-│
-├── **flask_app/** # Flask application for ML inference
-│ ├── app.py # Main Flask app
-│ ├── templates/ # HTML templates for the app
-│ └── static/ # Static files (CSS, JS, images)
-│
-├── **tests/** # Unit and integration tests
-├── **scripts/** # Utility scripts for automation
-├── **dvc.yaml** # DVC pipeline configuration
-├── **params.yaml** # Hyperparameters and configs
-├── **requirements.txt** # Python dependencies
-├── **Dockerfile** # Docker image configuration
-└── **.github/** # GitHub Actions CI/CD workflows
-└── workflows/
-└── ci.yaml # CI/CD pipeline
-
-````
-
-
 ---
 
 ## ⚙️ Major Features
@@ -74,6 +39,7 @@ A quick overview of the repository organization:
    conda activate atlas
    pip install cookiecutter
    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
+   ```
 ````
 
 ````
